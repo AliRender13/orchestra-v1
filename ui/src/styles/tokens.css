@@ -1,0 +1,87 @@
+/* ── Orchestra · AI Collaboration Workspace · Design Tokens ────────────
+   Dark-first, serious, restrained. One accent, flat surfaces, hairline borders.
+   NOTE: system font stacks only — no external font requests (privacy). */
+
+:root {
+  /* Backgrounds */
+  --bg-0: #060a11;
+  --bg-1: #0a101a;
+  --bg-2: #0e1622;
+  --bg-3: #141e2d;
+  --bg-4: #1a2637;
+
+  /* Borders */
+  --border-1: #1b2635;
+  --border-2: #27374c;
+  --border-strong: #33465e;
+
+  /* Text */
+  --text-1: #e9eff7;
+  --text-2: #9dacc1;
+  --text-3: #64748c;
+
+  /* Accent (single, confident blue) */
+  --accent: #5b8cff;
+  --accent-hover: #6f9bff;
+  --accent-active: #4a7ef0;
+  --accent-soft: rgba(91, 140, 255, 0.12);
+  --accent-border: rgba(91, 140, 255, 0.35);
+
+  /* Status */
+  --success: #3ecf8e;
+  --success-soft: rgba(62, 207, 142, 0.12);
+  --warning: #e8a33d;
+  --warning-soft: rgba(232, 163, 61, 0.12);
+  --danger: #e5605e;
+  --danger-soft: rgba(229, 96, 94, 0.12);
+  --info: #5b8cff;
+  --info-soft: rgba(91, 140, 255, 0.12);
+  --neutral: #8b98ac;
+  --neutral-soft: rgba(139, 152, 172, 0.12);
+  --violet: #a78bfa;
+  --violet-soft: rgba(167, 139, 250, 0.12);
+
+  /* Typography — system stacks, no external requests */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
+
+  --text-xs: 11px;
+  --text-sm: 12.5px;
+  --text-base: 14px;
+  --text-lg: 16px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+
+  /* Layout */
+  --sidebar-w: 248px;
+  --sidebar-w-collapsed: 68px;
+  --topbar-h: 60px;
+
+  /* Shadows (subtle — no glow) */
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-3: 0 16px 48px rgba(0, 0, 0, 0.55);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 120ms;
+  --dur-med: 220ms;
+}

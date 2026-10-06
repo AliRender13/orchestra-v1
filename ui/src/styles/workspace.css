@@ -1,0 +1,105 @@
+/* ── Project workspace · mission-control layout ───────────────────────── */
+
+.ws-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(280px, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .ws-grid { grid-template-columns: 1fr; }
+}
+
+/* stat strip under the project header */
+.ws-stats {
+  display: flex; flex-wrap: wrap; gap: 8px 22px;
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--border-1);
+  font-size: var(--text-sm); color: var(--text-2);
+}
+.ws-stats b { color: var(--text-1); font-weight: 800; margin-right: 4px; }
+.ws-stats .ok b { color: var(--success); }
+.ws-stats .warn b { color: var(--warning); }
+.ws-stats .bad b { color: var(--danger); }
+
+/* live pulse dot */
+.pulse-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: currentColor; margin-right: 6px;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+/* execution timeline */
+.timeline { display: flex; flex-direction: column; }
+.tl-step {
+  display: grid; grid-template-columns: 26px 1fr; gap: 10px;
+  position: relative; padding: 7px 0; align-items: center;
+}
+.tl-dot {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  background: var(--bg-3); border: 1px solid var(--border-1); color: var(--text-3);
+  z-index: 1;
+}
+.tl-step.done .tl-dot { background: rgba(62,207,142,.12); border-color: rgba(62,207,142,.4); color: var(--success); }
+.tl-step.current .tl-dot { background: rgba(94,124,255,.14); border-color: var(--accent); color: var(--accent); animation: pulse 1.6s ease-in-out infinite; }
+.tl-label { font-size: var(--text-sm); color: var(--text-3); }
+.tl-step.done .tl-label { color: var(--text-2); }
+.tl-step.current .tl-label { color: var(--text-1); font-weight: 700; }
+.tl-line {
+  position: absolute; left: 12.5px; top: 33px; bottom: -7px; width: 1px;
+  background: var(--border-1);
+}
+.tl-step.done .tl-line { background: rgba(62,207,142,.35); }
+
+/* ── task detail drawer ── */
+.drawer-scrim {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(3, 6, 12, 0.6); backdrop-filter: blur(2px);
+  animation: fade-in 160ms var(--ease);
+}
+.drawer {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: min(440px, 94vw);
+  background: var(--bg-1); border-left: 1px solid var(--border-1);
+  display: flex; flex-direction: column;
+  animation: slide-in 220ms var(--ease);
+  box-shadow: var(--shadow-lg);
+}
+.drawer-head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+  padding: 20px 20px 16px; border-bottom: 1px solid var(--border-1);
+}
+.drawer-body { padding: 20px; overflow-y: auto; flex: 1; }
+.drawer-section { margin-bottom: 20px; }
+@keyframes slide-in { from { transform: translateX(32px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+.icon-btn {
+  width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; border: 1px solid transparent; cursor: pointer;
+  color: var(--text-2); font-size: 14px;
+}
+.icon-btn:hover { background: var(--bg-3); color: var(--text-1); border-color: var(--border-1); }
+
+/* key-value rows in drawer */
+.kv {
+  display: grid; grid-template-columns: auto 1fr; gap: 6px 16px;
+  font-size: var(--text-sm);
+}
+.kv span:nth-child(odd) { color: var(--text-3); }
+.kv span:nth-child(even) { text-align: right; color: var(--text-1); }
+
+.artifact-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; background: var(--bg-2);
+  border: 1px solid var(--border-1); border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+.artifact-row:hover { border-color: var(--border-2); }

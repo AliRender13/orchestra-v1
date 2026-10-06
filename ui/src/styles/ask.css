@@ -1,0 +1,108 @@
+/* ── Ask Orchestra · centered composer screen ─────────────────────────── */
+
+.ask-wrap {
+  min-height: calc(100vh - 220px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.ask-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: var(--text-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+.ask-brand .brand-mark { font-size: 22px; color: var(--accent); }
+
+.ask-title {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 28px;
+  color: var(--text-1);
+}
+
+.ask-composer {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-2);
+  border: 1px solid var(--border-1);
+  border-radius: 999px;
+  padding: 8px 8px 8px 10px;
+  box-shadow: var(--shadow-lg);
+  transition: border-color var(--dur-fast);
+}
+.ask-composer:focus-within { border-color: var(--accent-dim); }
+
+.ask-plus {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: none; cursor: pointer;
+  color: var(--text-2); font-size: 20px; flex-shrink: 0;
+}
+.ask-plus:hover { background: var(--bg-3); color: var(--text-1); }
+
+.ask-input {
+  flex: 1; min-width: 0;
+  background: transparent; border: none; outline: none;
+  color: var(--text-1); font-size: var(--text-base);
+  font-family: var(--font-sans);
+}
+.ask-input::placeholder { color: var(--text-3); }
+
+.ask-tools { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+
+.ask-voice {
+  width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--accent); border: none; cursor: pointer;
+  color: #fff; font-size: 16px;
+  box-shadow: 0 4px 14px rgba(94, 124, 255, 0.4);
+}
+.ask-voice:hover { filter: brightness(1.08); }
+.ask-voice:disabled { cursor: default; }
+
+.ask-mic {
+  width: 34px; height: 34px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: none;
+  color: var(--text-3); font-size: 15px; flex-shrink: 0;
+}
+.ask-mic.planned { cursor: not-allowed; opacity: 0.55; }
+
+.ask-suggest {
+  margin-top: 26px;
+  display: flex; flex-direction: column; gap: 4px;
+  width: 100%; max-width: 720px;
+}
+.ask-suggest button {
+  display: flex; align-items: center; gap: 12px;
+  background: transparent; border: none; cursor: pointer;
+  color: var(--text-2); font-size: var(--text-base);
+  padding: 10px 14px; border-radius: var(--radius-md);
+  font-family: var(--font-sans); text-align: left;
+}
+.ask-suggest button:hover { background: var(--bg-2); color: var(--text-1); }
+.ask-suggest button .s-ic {
+  width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-2); border: 1px solid var(--border-1);
+  font-size: 14px;
+}
+
+.ask-note { margin-top: 22px; max-width: 560px; }
+
+@media (max-width: 640px) {
+  .ask-composer { border-radius: 24px; flex-wrap: wrap; }
+  .ask-input { flex-basis: 100%; order: -1; padding: 8px 10px; }
+}
